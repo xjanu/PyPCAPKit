@@ -534,7 +534,7 @@ class Extractor(Generic[P]):
             else:
                 ifnm = fin
 
-            if not os.path.isfile(ifnm):
+            if not os.path.exists(ifnm) or os.path.isdir(ifnm):
                 raise FileNotFound(2, 'No such file or directory', ifnm)
         else:
             ifnm = fin.name
